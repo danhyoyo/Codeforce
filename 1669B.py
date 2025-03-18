@@ -1,13 +1,14 @@
-from collections import Counter
-
 t = int(input())
 while t:
     n = int(input())
-    l = list(dict(Counter(map(int, input().split()))).items())
-    l.sort(key = lambda x: x[1])
-    if l[len(l)-1][1] >=3:
-        print(l[len(l)-1][0])
-    else:
+    a = list(map(int, input().split()))
+    a.sort()
+    b = True
+    for i in range(n-2):
+        if a[i] == a[i+1] and a[i] == a[i+2]:
+            print(a[i])
+            b = False
+            break
+    if b:
         print(-1)
-
     t-=1
